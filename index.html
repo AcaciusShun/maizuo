@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                        // docEl.style.fontSize = '100px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <title>卖座电影</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+<body>
+<main>
+    <div class="application">
+        <div class="application-head">
+            <nav id="toolbar" class="notybar-upside">
+                <!--顶部左边部分-->
+                <h1>
+                    <a href="javascript: void 0;">
+                        <div class="toolbar-title-icon">
+                            <i class="iconfont icon-zhankai"></i>
+                        </div>
+                        <div class="toolbar-title">卖座电影</div>
+                    </a>
+                </h1>
+                <!--顶部右边部分-->
+                <div id="nav-right">
+                    <a class="city" href="javascript: void 0;">
+                        <span class="city-content">北京</span>
+                        <i class="iconfont icon-xiala"></i>
+                    </a>
+                    <a class="user" href="javascript: void 0;">
+                        <i class="iconfont icon-jiaoseguanli"></i>
+                    </a>
+                </div>
+
+            </nav>
+        </div>
+        <div class="application-view">
+            <section class="content">
+                <div class="slick">
+                    <div>
+                        <img src="images/starwar.jpg" alt="">
+                    </div>
+
+                </div>
+
+
+                <div>
+                    <div class="movie">
+                        <ul class="list-unstyled">
+                            <!--li*5>div.movie-item>((div.movie-item-img>div.img-responsive>img)+div.row .desc)-->
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/theEx.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row desc">
+                                        <div class="c10 left">
+                                            <div class="film-name">前任3：再见前任</div>
+                                            <div class="count">
+                                                <span>143</span>
+                                                <span>家影院上映</span>
+                                                <span>1797002</span>
+                                                <span>人购票</span>
+                                            </div>
+                                        </div>
+                                        <div class="c2 right">
+                                            <span class="score">8.4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/starwar8.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row desc">
+                                        <div class="c10 left">
+                                            <div class="film-name">星球大战8：最后的绝地武士</div>
+                                            <div class="count">
+                                                <span>146</span>
+                                                <span>家影院上映</span>
+                                                <span>523331</span>
+                                                <span>人购票</span>
+                                            </div>
+                                        </div>
+                                        <div class="c2 right">
+                                            <span class="score">8.3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/fanghua.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row desc">
+                                        <div class="c10 left">
+                                            <div class="film-name">芳华</div>
+                                            <div class="count">
+                                                <span>140</span>
+                                                <span>家影院上映</span>
+                                                <span>3916482</span>
+                                                <span>人购票</span>
+                                            </div>
+                                        </div>
+                                        <div class="c2 right">
+                                            <span class="score">8.4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/cat.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row desc">
+                                        <div class="c10 left">
+                                            <div class="film-name">妖猫传</div>
+                                            <div class="count">
+                                                <span>111</span>
+                                                <span>家影院上映</span>
+                                                <span>1175679</span>
+                                                <span>人购票</span>
+                                            </div>
+                                        </div>
+                                        <div class="c2 right">
+                                            <span class="score">8.3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/ghost.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row desc">
+                                        <div class="c10 left">
+                                            <div class="film-name">二代妖精之今生有幸</div>
+                                            <div class="count">
+                                                <span>84</span>
+                                                <span>家影院上映</span>
+                                                <span>324934</span>
+                                                <span>人购票</span>
+                                            </div>
+                                        </div>
+                                        <div class="c2 right">
+                                            <span class="score">8.4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="more-button">更多热映电影</div>
+                </div>
+
+
+
+                <div>
+                    <div class="dividing-line">
+                        <div class="upcoming">即将上映</div>
+                        </div>
+                    <div class="movie">
+                        <ul class="list-unstyled">
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/wuwen.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row upcoming-desc">
+                                        <div class="c7 left">
+                                            <div class="film-name">无问西东</div>
+                                        </div>
+                                        <div class="c5 right">
+                                            <div class="showing-date">1月12日上映</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/muguang.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row upcoming-desc">
+                                        <div class="c7 left">
+                                            <div class="film-name">暮光·巴黎</div>
+                                        </div>
+                                        <div class="c5 right">
+                                            <div class="showing-date">2月28日上映</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="movie-item">
+                                    <div class="movie-item-img">
+                                        <div class="img-responsive"><img src="images/keep.jpg" alt=""></div>
+                                    </div>
+                                    <div class="row upcoming-desc">
+                                        <div class="c7 left">
+                                            <div class="film-name">卧底巨星</div>
+                                        </div>
+                                        <div class="c5 right">
+                                            <div class="showing-date">1月12日上映</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="more-button">更多即将上映电影</div>
+                </div>
+
+
+
+                <div></div>
+
+            </section>
+        </div>
+    </div>
+</main>
+</body>
+</html>

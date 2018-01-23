@@ -1,0 +1,241 @@
+/*公共样式*/
+*{box-sizing: border-box;}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary{display: block;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal}
+ol,ul {list-style:none;margin-top: 0;margin-bottom: 0.1rem}
+caption,th {text-align:left}
+h1,h2,h3,h4,h5,h6 {font-size:0.16rem;font-weight:normal}
+q:before,q:after {content:''}
+abbr,acronym { border:0}
+a,em,i{text-decoration: none}
+.clear:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.row {
+    margin-right: -0.15rem;
+    margin-left: -0.15rem;
+}
+.c10 {
+    width: 83.33333333%;
+    float: left;
+    position: relative;
+    min-height: 0.01rem;
+    padding-right: 0.15rem;
+    padding-left: 0.15rem;
+}
+.c2 {
+    width: 16.66666667%;
+    float: left;
+    position: relative;
+    min-height: 0.01rem;
+    padding-right: 0.15rem;
+}
+.c7{
+    width: 58.33333333%;
+    float: left;
+    position: relative;
+    min-height: 0.01rem;
+
+}
+.c5{
+    width: 41.66666667%;
+    float: left;
+    position: relative;
+    min-height: 0.01rem;
+    padding-right: 0.15rem;
+}
+
+#toolbar{
+    background: #282828;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    overflow: hidden;
+}
+.notybar-upside{
+    transform-origin:0 0.25rem -0.25rem;
+}
+#toolbar h1 a .toolbar-title-icon{
+    float: left;
+    width: 0.48rem;
+    text-align: center;
+    border-right: 0.01rem solid #222;
+    /*mso-border-shadow: 0.01rem 0 0.01rem #363636;*/
+    color: #999;
+}
+#toolbar h1 a .toolbar-title{
+    padding: 0 0.1rem;
+    float: left;
+    font-size: 0.14rem;
+    color: #efefef;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#nav-right{
+    float: right;
+}
+#nav-right a{
+color: #999;
+}
+#nav-right .city{
+    float: left;
+    font-size: 0.14rem;
+    padding: 0 0.06rem;
+}
+#nav-right .city i{
+    font-size: 0.12rem;
+}
+
+#nav-right .user{
+    float: left;
+    font-size: 16px;
+    width: 48px;
+    text-align: center;
+}
+.application-view{
+    padding: 0.5rem 0 0;
+}
+.content{
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.slick{
+    height: auto;
+}
+
+.slick img{
+    border: 0rem solid #fff;
+    display: block;
+    width: 100%;
+    vertical-align: middle;
+    transition: all 1.2s ease;
+    opacity: 1;
+}
+
+.movie ul{
+    padding-top: 0.18rem;
+}
+.list-unstyled{
+    padding-left: 0;
+}
+.movie ul li {
+    margin: 0 0.17rem 0.17rem 0.17rem;
+    background-color: #f9f9f9;
+    box-shadow: 0.005rem 0.005rem 0.01rem #a8a8a8;
+    cursor: pointer;
+}
+.movie ul li .movie-item-img {
+    overflow: hidden;
+    position: relative;
+}
+.img-responsive{
+    background-size: 100%;
+    background-image:url("../images/bg.png");
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.img-responsive img{
+    border: 0;
+    display: block;
+    width: 100%;
+    vertical-align: middle;
+    transition: all 1.2s ease;
+    opacity: 1;
+}
+.movie ul li .desc{
+    height: 0.5rem;
+}
+.movie ul li .desc .left {
+    height: 0.5rem;
+    padding-right: 0;
+    padding-top: 0.13rem;
+    padding-left: 0.28rem;
+}
+.movie ul li .desc .right {
+    padding-left: 0;
+}
+.movie ul li .desc .left .film-name {
+    font-size: 0.12rem;
+    line-height: 0.15rem;
+    -webkit-user-select: text;
+    user-select: text;
+}
+.movie ul li .desc .left .count {
+    font-size: 0.08rem;
+    color: #9a9a9a;
+    line-height: 0.15rem
+}
+.movie ul li .desc .right .score {
+    color: #f78360;
+    display: inline-block;
+    line-height: 0.50rem;
+    float: right;
+    margin-right: 0.15rem;
+    font-size: 0.18rem;
+}
+.more-button {
+    width: 1.6rem;
+    height: 0.30rem;
+    border: 0.01rem solid #aaa;
+    border-radius: 0.15rem;
+    margin: 0.1rem auto 0.3rem;
+    text-align: center;
+    line-height: 0.3rem;
+    font-size: 0.12rem;
+    color: #616161;
+    cursor: pointer;
+}
+
+.dividing-line {
+    position: relative;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    border-bottom: 0.01rem solid #a8a8a8;
+}
+.upcoming {
+    width: 0.65rem;
+    height: 0.2rem;
+    margin: 0 auto;
+    margin-bottom: -0.1rem;
+    border-radius: 0.05rem;
+    font-size: 0.1rem;
+    line-height: 0.2rem;
+    text-align: center;
+    color: #eee;
+    background-color: #a7a7a7;
+}
+.movie ul li .upcoming-desc {
+    height: 0.35rem;
+}
+.movie ul li .upcoming-desc .left{
+    height: 0.35rem;
+    padding-right: 0;
+    padding-top: 0.1rem;
+    padding-left: 0.28rem;
+}
+.movie ul li .upcoming-desc .left .film-name {
+    font-size: 0.12rem;
+    line-height: 0.15rem;
+}
+.movie ul li .upcoming-desc .right{
+    height: 0.35rem;
+    padding-right: 0;
+    padding-top: 0.1rem;
+    padding-left: 0.28rem;
+}
+.movie ul li .upcoming-desc .right .showing-date {
+    font-size: 0.1rem;
+    color: RGB(245, 162, 125);
+    line-height: 0.15rem;
+}
