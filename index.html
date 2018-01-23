@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <script src="js/swiper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
 <main>
@@ -34,7 +37,7 @@
         <div class="application-head">
             <nav id="toolbar" class="notybar-upside">
                 <!--顶部左边部分-->
-                <h1>
+                <h1 @click="showFlag = true">
                     <a href="javascript: void 0;">
                         <div class="toolbar-title-icon">
                             <i class="iconfont icon-zhankai"></i>
@@ -57,119 +60,34 @@
         </div>
         <div class="application-view">
             <section class="content">
-                <div class="slick">
-                    <div>
-                        <img src="images/starwar.jpg" alt="">
+                <div class="swiper-container">
+                    <div class="slick swiper-wrapper">
+                        <div class="swiper-slide" v-for="item in arr_top">
+                            <img :src="item" alt="">
+                        </div>
                     </div>
-
                 </div>
-
-
                 <div>
                     <div class="movie">
                         <ul class="list-unstyled">
                             <!--li*5>div.movie-item>((div.movie-item-img>div.img-responsive>img)+div.row .desc)-->
-                            <li>
+                            <li v-for="item in now_playing">
                                 <div class="movie-item">
                                     <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/theEx.jpg" alt=""></div>
+                                        <div class="img-responsive"><img :src="item.cover.origin" alt=""></div>
                                     </div>
                                     <div class="row desc">
                                         <div class="c10 left">
-                                            <div class="film-name">前任3：再见前任</div>
+                                            <div class="film-name">{{item.name}}</div>
                                             <div class="count">
-                                                <span>143</span>
+                                                <span>{{item.cinemaCount}}</span>
                                                 <span>家影院上映</span>
-                                                <span>1797002</span>
+                                                <span>{{item.watchCount}}</span>
                                                 <span>人购票</span>
                                             </div>
                                         </div>
                                         <div class="c2 right">
-                                            <span class="score">8.4</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="movie-item">
-                                    <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/starwar8.jpg" alt=""></div>
-                                    </div>
-                                    <div class="row desc">
-                                        <div class="c10 left">
-                                            <div class="film-name">星球大战8：最后的绝地武士</div>
-                                            <div class="count">
-                                                <span>146</span>
-                                                <span>家影院上映</span>
-                                                <span>523331</span>
-                                                <span>人购票</span>
-                                            </div>
-                                        </div>
-                                        <div class="c2 right">
-                                            <span class="score">8.3</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="movie-item">
-                                    <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/fanghua.jpg" alt=""></div>
-                                    </div>
-                                    <div class="row desc">
-                                        <div class="c10 left">
-                                            <div class="film-name">芳华</div>
-                                            <div class="count">
-                                                <span>140</span>
-                                                <span>家影院上映</span>
-                                                <span>3916482</span>
-                                                <span>人购票</span>
-                                            </div>
-                                        </div>
-                                        <div class="c2 right">
-                                            <span class="score">8.4</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="movie-item">
-                                    <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/cat.jpg" alt=""></div>
-                                    </div>
-                                    <div class="row desc">
-                                        <div class="c10 left">
-                                            <div class="film-name">妖猫传</div>
-                                            <div class="count">
-                                                <span>111</span>
-                                                <span>家影院上映</span>
-                                                <span>1175679</span>
-                                                <span>人购票</span>
-                                            </div>
-                                        </div>
-                                        <div class="c2 right">
-                                            <span class="score">8.3</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="movie-item">
-                                    <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/ghost.jpg" alt=""></div>
-                                    </div>
-                                    <div class="row desc">
-                                        <div class="c10 left">
-                                            <div class="film-name">二代妖精之今生有幸</div>
-                                            <div class="count">
-                                                <span>84</span>
-                                                <span>家影院上映</span>
-                                                <span>324934</span>
-                                                <span>人购票</span>
-                                            </div>
-                                        </div>
-                                        <div class="c2 right">
-                                            <span class="score">8.4</span>
+                                            <span class="score">{{item.grade}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -179,59 +97,28 @@
                     <div class="more-button">更多热映电影</div>
                 </div>
 
-
-
                 <div>
                     <div class="dividing-line">
                         <div class="upcoming">即将上映</div>
-                        </div>
+                    </div>
                     <div class="movie">
                         <ul class="list-unstyled">
-                            <li>
+                            <li v-for="item in coming_soon">
                                 <div class="movie-item">
                                     <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/wuwen.jpg" alt=""></div>
+                                        <div class="img-responsive"><img :src="item.cover.origin" alt=""></div>
                                     </div>
                                     <div class="row upcoming-desc">
                                         <div class="c7 left">
-                                            <div class="film-name">无问西东</div>
+                                            <div class="film-name">{{item.name}}</div>
                                         </div>
                                         <div class="c5 right">
-                                            <div class="showing-date">1月12日上映</div>
+                                            <div class="showing-date">{{item.date}}</div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="movie-item">
-                                    <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/muguang.jpg" alt=""></div>
-                                    </div>
-                                    <div class="row upcoming-desc">
-                                        <div class="c7 left">
-                                            <div class="film-name">暮光·巴黎</div>
-                                        </div>
-                                        <div class="c5 right">
-                                            <div class="showing-date">2月28日上映</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="movie-item">
-                                    <div class="movie-item-img">
-                                        <div class="img-responsive"><img src="images/keep.jpg" alt=""></div>
-                                    </div>
-                                    <div class="row upcoming-desc">
-                                        <div class="c7 left">
-                                            <div class="film-name">卧底巨星</div>
-                                        </div>
-                                        <div class="c5 right">
-                                            <div class="showing-date">1月12日上映</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+
                         </ul>
                     </div>
                     <div class="more-button">更多即将上映电影</div>
@@ -243,7 +130,199 @@
 
             </section>
         </div>
+        <!--<aside :class="{show:showFlag}">-->
+            <!--<nav>-->
+                <!--<ul>-->
+                    <!--<li v-for="item in mean">-->
+                        <!--<a :href="item.link">-->
+                            <!--<span>{{item.title}}</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</nav>-->
+        <!--</aside>-->
     </div>
 </main>
 </body>
+<script>
+    var vm = new Vue({
+        el : ".application",
+        data: {
+            // showFlag:flase,
+            arr_top: [
+                "https://pic.maizuo.com/h5PicUpload/e7ad01f7685b9d94dfb9511bf71ac191.jpg",
+                "https://pic.maizuo.com/h5PicUpload/062a965ab71db31fe0b7ad6f8c529935.jpg"
+            ],
+            now_playing:
+                [{
+                    "id": 4057,
+                    "name": "无问西东",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/6f8d3193bc19f9a36e61abacd15b863a.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/bcbadd43d5ea5f2e934f44163526f05c.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/bcbadd43d5ea5f2e934f44163526f05c.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "只问深情 无问西东",
+                    "premiereAt": 1515686400000,
+                    "grade": "8.4",
+                    "watchCount": 1481722,
+                    "cinemaCount": 148,
+                    "scheduleCount": 2680,
+                    "isPromotion": true,
+                    "isNowPlaying": true,
+                    "isComingSoon": "",
+                    "isPresold": ""
+                }, {
+                    "id": 4071,
+                    "name": "神秘巨星",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/114ee2e4f05f1060ea4f8c4d87d25eb1.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/9b81a91f64cdc1e51b3fe72cd8d3c1f9.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/9b81a91f64cdc1e51b3fe72cd8d3c1f9.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "揭露家暴挑战男权 催泪巨星梦想成真",
+                    "premiereAt": 1516291200000,
+                    "grade": "8.5",
+                    "watchCount": 463461,
+                    "cinemaCount": 148,
+                    "scheduleCount": 2541,
+                    "isPromotion": true,
+                    "isNowPlaying": true,
+                    "isComingSoon": "",
+                    "isPresold": ""
+                }, {
+                    "id": 4002,
+                    "name": "奇迹男孩",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/8ac6534a9c16f05e454b98926523e6d4.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/adfcd7ac17233313ddad4e8887a35d5c.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/adfcd7ac17233313ddad4e8887a35d5c.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "残酷玩笑化奇迹 选择善良",
+                    "premiereAt": 1516291200000,
+                    "grade": "8.5",
+                    "watchCount": 220843,
+                    "cinemaCount": 147,
+                    "scheduleCount": 1481,
+                    "isPromotion": true,
+                    "isNowPlaying": true,
+                    "isComingSoon": "",
+                    "isPresold": ""
+                }, {
+                    "id": 3987,
+                    "name": "勇敢者游戏：决战丛林",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/d44e5dfcb60df8ac39c101b21cd8bf9d.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/961391f7479f426b6584691330b2257f.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/961391f7479f426b6584691330b2257f.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "穿越入游戏 战胜返现实",
+                    "premiereAt": 1515686400000,
+                    "grade": "8.4",
+                    "watchCount": 950907,
+                    "cinemaCount": 122,
+                    "scheduleCount": 1135,
+                    "isPromotion": true,
+                    "isNowPlaying": true,
+                    "isComingSoon": "",
+                    "isPresold": ""
+                }, {
+                    "id": 4017,
+                    "name": "星球大战8：最后的绝地武士",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/fc952ee11cf01366704dba86d94040f9.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/76b217868630ec80a256f091a3619226.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/76b217868630ec80a256f091a3619226.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "恐怖政权袭 与原力同在",
+                    "premiereAt": 1515081600000,
+                    "grade": "8.4",
+                    "watchCount": 706439,
+                    "cinemaCount": 31,
+                    "scheduleCount": 157,
+                    "isPromotion": true,
+                    "isNowPlaying": true,
+                    "isComingSoon": "",
+                    "isPresold": ""
+                }],
+
+
+            coming_soon: [
+                {
+                    "id": 3744,
+                    "name": "暮光·巴黎",
+                    "date": "2 月 28 日上映",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/13ccbb13a8506755e3855d10376b4f31.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/e70c033df713da252cf89aec328b5277.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/e70c033df713da252cf89aec328b5277.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "百年暗黑童话 最浪漫吸血鬼电影",
+                    "premiereAt": 1519747200000,
+                    "grade": "8.0",
+                    "watchCount": 0,
+                    "cinemaCount": 0,
+                    "scheduleCount": 0,
+                    "isPromotion": true,
+                    "isNowPlaying": "",
+                    "isComingSoon": true,
+                    "isPresold": ""
+                }, {
+                    "id": 4097,
+                    "name": "大雪冬至",
+                    "date": "1 月 25 日上映",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/69046c7e9c4a25d760440e06bd2499cd.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/65d0a44e16fe786a40723b089d247639.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/65d0a44e16fe786a40723b089d247639.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "",
+                    "premiereAt": 1516809600000,
+                    "grade": "8.0",
+                    "watchCount": 0,
+                    "cinemaCount": 0,
+                    "scheduleCount": 0,
+                    "isPromotion": false,
+                    "isNowPlaying": "",
+                    "isComingSoon": true,
+                    "isPresold": ""
+                }, {
+                    "id": 4066,
+                    "name": "五度空间",
+                    "date": "1 月 26 日上映",
+                    "cover": {"origin": "https://pic.maizuo.com/usr/movie/50552e32698bd7b675351dbaaf8029bb.jpg"},
+                    "poster": {
+                        "origin": "https://pic.maizuo.com/usr/movie/50552e32698bd7b675351dbaaf8029bb.jpg",
+                        "thumbnail": "https://pic.maizuo.com/usr/movie/50552e32698bd7b675351dbaaf8029bb.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300"
+                    },
+                    "intro": "",
+                    "premiereAt": 1516896000000,
+                    "grade": "8.0",
+                    "watchCount": 0,
+                    "cinemaCount": 0,
+                    "scheduleCount": 0,
+                    "isPromotion": false,
+                    "isNowPlaying": "",
+                    "isComingSoon": true,
+                    "isPresold": ""
+                }
+            ],
+            // mean: [
+            //     {"title": "首页", link: ""},
+            //     {"title": "影片", link: ""},
+            //     {"title": "影院", link: ""},
+            //     {"title": "商城", link: ""},
+            //     {"title": "我的", link: ""},
+            //     {"title": "卖座卡", link: ""}
+            // ]
+        }
+        })
+
+    var mySwiper = new Swiper('.swiper-container',{
+        autoplay:true,   //可选项  自动轮播
+        loop:true
+    })
+
+
+</script>
 </html>
